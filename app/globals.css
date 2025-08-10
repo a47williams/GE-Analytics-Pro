@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base (page chrome, typography) ---------- */
+@layer base {
+  html, body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+  }
+
+  a {
+    @apply text-emerald-400 hover:text-emerald-300 underline-offset-2 hover:underline;
+  }
+
+  .h1 { @apply text-3xl md:text-4xl font-semibold tracking-tight; }
+  .h2 { @apply text-2xl md:text-3xl font-semibold tracking-tight; }
+}
+
+/* ---------- Components (cards, inputs, buttons, pills, skeletons) ---------- */
+@layer components {
+  /* page container helper (use if you want) */
+  .container-page { @apply mx-auto max-w-6xl px-4 md:px-6; }
+
+  .card {
+    @apply rounded-xl border border-slate-800/60 bg-slate-900/50 backdrop-blur-sm shadow-sm
+           transition-all hover:border-slate-700/80 hover:shadow-md;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium shadow-sm
+           text-white bg-emerald-600 hover:bg-emerald-500
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium
+           bg-slate-800 hover:bg-slate-700 text-slate-100 shadow-sm
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .input {
+    @apply h-10 w-full rounded-lg bg-slate-900/60 border border-slate-800/70 px-3 text-sm
+           outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30
+           placeholder:text-slate-500;
+  }
+
+  .label { @apply text-xs uppercase tracking-wide text-slate-400; }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-slate-800
+           bg-slate-900/60 px-3 py-1 text-xs text-slate-300;
+  }
+
+  .skeleton { @apply animate-pulse bg-slate-800/60 rounded; }
+}
+
+/* ---------- Small utilities you may use ---------- */
+@layer utilities {
+  .text-mono { @apply font-mono; }
+}
